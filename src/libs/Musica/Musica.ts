@@ -1,4 +1,4 @@
-import { IEmpresa } from "@dao/models/Musica/IMusica";
+import { IMusica } from "@dao/models/Musica/IMusica";
 import { IDataAccessObject } from "@dao/IDataAccessObject";
 export class Musica {
   
@@ -17,7 +17,7 @@ export class Musica {
   }
   add(nuevaMusica: IMusica) {
     const date = new Date();
-    const nueva: IEmpresa = {
+    const nueva: IMusica = {
       ...nuevaMusica,
       created: date,
       updated: date
