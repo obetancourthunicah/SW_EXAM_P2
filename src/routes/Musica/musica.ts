@@ -66,6 +66,7 @@ router.post('/new', async (req, res) => {
 router.put('/upd/:id', async (req, res) => {
   const { id } = req.params;
   const {
+    codigo="",
     nombrecancion="----NoRecibido------",
     artista="----NoRecibido------",
     album = "",
@@ -80,6 +81,9 @@ router.put('/upd/:id', async (req, res) => {
     return res.status(403).json({"error":"Debe venir el nombre de la cancion correcto"});
   }
   const UpdateMusica : IMusica = {
+    codigo,
+    nombrecancion,
+    artista,
     album,
     fechalanzamiento,
     url
