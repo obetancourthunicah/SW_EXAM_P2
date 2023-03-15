@@ -17,3 +17,4 @@ incluyendo mensajes de error detallados cuando sea necesario.
 
 
 --------- Crear modelo plantas
+Crear libs plantas

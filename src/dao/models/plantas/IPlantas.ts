@@ -5,5 +5,5 @@ export interface IPlantas{
     cuidados: string;
     luzSolar: boolean;
     riegoRequeridos?: Date;
-    creacion?: Date;
+    created?: Date;
 }
