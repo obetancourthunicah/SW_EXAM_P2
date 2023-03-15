@@ -1,4 +1,6 @@
-import express from 'express';
+import express from "express";
+const router = express.Router();
+
 import { EntidadDao } from '@server/dao/models/entidad/Entidad';
 import { MongoDBConn } from '@server/dao/MongoDBConn';
 import { IEntidad } from '@server/dao/models/entidad/IEntidad';
