@@ -18,5 +18,10 @@ router.post('/linkvideo', async (req, res) => {
     return res.status(200).json(result);
 })
 
+router.get('/playvideo/:id', async (req, res) => {
+    const { id } = req.params;
+    const result = await videosModel.playVideoById(id);
+    return res.status(200).json(result);
+});
 
 export default router;

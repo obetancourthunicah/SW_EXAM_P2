@@ -24,4 +24,13 @@ export class LinkVideos{
             return null;
         }
     }
+
+    public async playVideoById(id: string){
+        try {
+            return this.videosDao.findByID(id);
+        } catch (error) {
+            console.error('linkedVideo error: ', error);
+            return null;
+        }
+    }
 }
