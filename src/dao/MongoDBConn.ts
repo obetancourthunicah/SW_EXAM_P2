@@ -6,6 +6,7 @@ const mongoDBName = process.env.MONGO_DB_NAME || 'sw202301';
 
 export class MongoDBConn implements IDBConnection {
   static connection:MongoClient = null;
+	// eslint-disable-next-line @typescript-eslint/no-empty-function
 	private constructor(){}
   //A hack because typescript can´t handle static methods in interfaces :(
   getConnection(): Promise<any> {
