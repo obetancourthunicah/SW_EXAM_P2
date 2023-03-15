@@ -1,5 +1,5 @@
 export interface IPlantas{
-    _id: string;
+    codigo: string;
     nombre_cientifico: string;
     nombre_comun: string;
     descripcion: string;
