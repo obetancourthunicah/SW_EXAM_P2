@@ -2,16 +2,16 @@ import express from 'express';
 const router = express.Router();
 import { MusicaDao } from '@dao/models/Musica/MusicaDao';
 import { MongoDBConn } from '@dao/MongoDBConn';
-import { IMusica } from '@dao/models/Musica/Musica';
+import { IMusica } from '@dao/models/Musica/IMusica';
 import { Musica } from '@libs/Musica/Musica';
-const empresasDao = new MusicaDao(MongoDBConn);
+const musicaDao = new MusicaDao(MongoDBConn);
 let MusicaModel:Musica;
-empresasDao.init().then(()=>{
-    MusicaModel = newMusica(MusicaDao);
+musicaDao.init().then(()=>{
+    MusicaModel = new Musica(musicaDao);
 });
 
 //registrar los endpoint en router
-//http://localhost:3001/empresas
+//http://localhost:3002/Musica
 router.get('/', (_req, res)=>{
   const jsonUrls = {
     "getAll": {"method":"get", "url": "Musica/all"},
@@ -24,13 +24,13 @@ router.get('/', (_req, res)=>{
 });
 
 router.get('/all', async (_req, res) => {
-  res.status(200).json(awaitMusicaModel.getAll());
+  res.status(200).json(await MusicaModel.getAll());
 });
 
 router.get('/byid/:id', async (req, res)=>{
   const {id: codigo} = req.params;
   const Musica = await MusicaModel.getById(codigo);
-  if(Musica{
+  if(Musica){
     return res.status(200).json(Musica);
   }
   return res.status(404).json({"error":"No se encontró la cancion"});
@@ -39,47 +39,53 @@ router.get('/byid/:id', async (req, res)=>{
 router.post('/new', async (req, res) => {
   console.log("Musica /new request body:", req.body);
   const {
-    codigo = "NA",
-    nombre ="John Doe Corp",
-    status = "Activo"
+    codigo="1",
+    nombrecancion ="John Doe",
+    artista="John Doe ",
+    album="NO",
+    fechalanzamiento="",
+    url=""
   } = req.body;
   //TODO: Validar Entrada de datos
-  const newEmpresa: IMusica = {
+  const newMusica: IMusica = {
     codigo,
-    nombre,
-    status
+    nombrecancion,
+    artista,
+    album,
+    fechalanzamiento,
+    url
   };
-  if (await MusicaModel.add(newEmpresa)) {
+  if (await MusicaModel.add(newMusica)) {
     return res.status(200).json({"created": true});
   }
   return res.status(404).json(
-    {"error": "Error al agregar una nueva Empresa"}
+    {"error": "Error al agregar una nueva Musica"}
   );
 });
 
 router.put('/upd/:id', async (req, res) => {
   const { id } = req.params;
   const {
-    nombre="----NotRecieved------",
-    status="----NotRecieved------",
-    observacion = "",
-    codigo = "",
+    nombrecancion="----NoRecibido------",
+    artista="----NoRecibido------",
+    album = "",
+    fechalanzamiento = "",
+    url="",
   } = req.body;
 
   if (
-    nombre === "----NotRecieved------"
-    || status === "----NotRecieved------"
+    nombrecancion === "----NoRecibido------"
+    || artista === "----NoRecibido------"
   ) {
-    return res.status(403).json({"error":"Debe venir el nombre y status correctos"});
+    return res.status(403).json({"error":"Debe venir el nombre de la cancion correcto"});
   }
-  const UpdateEmpresa : IMusica = {
-    codigo,
-    nombre,
-    status,
-    observacion
+  const UpdateMusica : IMusica = {
+    album,
+    fechalanzamiento,
+    url
   };
 
-  if (await MusicaModel.update(id, UpdateEmpresa)) {
+  if (await MusicaModel.update(id, UpdateMusica)) {
     return res
       .status(200)
       .json({"updated": true});
@@ -88,7 +94,7 @@ router.put('/upd/:id', async (req, res) => {
     .status(404)
     .json(
       {
-        "error": "Error al actualizar Empresa"
+        "error": "Error al actualizar la Musica"
       }
     );
 });
@@ -98,11 +104,7 @@ router.delete('/del/:id', async (req, res)=>{
   if(await MusicaModel.delete(id)){
     return res.status(200).json({"deleted": true});
   }
-  return res.status(404).json({"error":"No se pudo eliminar Empresa"});
+  return res.status(404).json({"error":"No se pudo eliminar Musica"});
 });
-/*
-router.get('/', function(_req, res){
-});
- */
 
 export default router;
