@@ -1,3 +1,6 @@
+import express from 'express';
+const router = express.Router();
+
 import * as moduleAlias from 'module-alias';
 import logger from '@utils/logger';
 const srcPath = 'src';
@@ -48,3 +51,8 @@ MongoDBConn.getConnection().then(()=>{
 }).catch((error)=>{
   console.error("No se pudo conectar a la DB", error);
 });
+
+import EventoRouter from './routes/evento/evento';
+router.use('/evento', EventoRouter);
+
+export default router;
