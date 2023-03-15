@@ -3,21 +3,21 @@ import logger from '@utils/logger';
 const srcPath = 'src';
 moduleAlias.addAliases({
   "@config": `${srcPath}/config`,
-      "@handlers": `${srcPath}/handlers`,
-      "@libs": `${srcPath}/libs`,
-      "@middleware": `${srcPath}/middleware`,
-      "@models": `${srcPath}/dao/models`,
-      "@routes": `${srcPath}/routes`,
-      "@utils": `${srcPath}/utils`,
-      "@dao": `${srcPath}/dao`
+  "@handlers": `${srcPath}/handlers`,
+  "@libs": `${srcPath}/libs`,
+  "@middleware": `${srcPath}/middleware`,
+  "@models": `${srcPath}/dao/models`,
+  "@routes": `${srcPath}/routes`,
+  "@utils": `${srcPath}/utils`,
+  "@dao": `${srcPath}/dao`
 });
 
 import { createServer } from '@config/express';
-import { MongoDBConn } from '@dao/MongoDBConn';
 import { AddressInfo } from 'net';
+import { MongoDBConn } from '@dao/MongoDBConn';
 import http from 'http';
 
-const host = process.env.HOST || '0.0.0.0';
+const host = process.env.HOST || 'localhost';
 const port = process.env.PORT || 3001;
 const startServer = () => {
   const app = createServer();
@@ -45,6 +45,6 @@ const startServer = () => {
 
 MongoDBConn.getConnection().then(()=>{
   startServer();
-}).catch((error)=>{
-  console.error("No se pudo conectar a la DB", error);
-});
+}).catch((err)=>{
+  console.error(`Error al conectarse: ${err}`)
+})
