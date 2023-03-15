@@ -5,7 +5,7 @@ export interface IEventos extends IAuditable {
     _id?: ObjectId | string;
     nombre: string;
     fecha: Date;
-    hora: string;
+    hora: number;
     descripcion : string;
     ubicacion: string;
     categoria: string;
@@ -14,7 +14,7 @@ export interface IEventos extends IAuditable {
 export const DefaultEventos: IEventos = {
     nombre: '',
     fecha: new Date(),
-    hora: '',
+    hora: 0,
     descripcion: '',
     ubicacion: '',
     categoria: '',

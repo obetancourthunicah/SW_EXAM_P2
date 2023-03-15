@@ -1,6 +1,7 @@
 import { IDataAccessObject } from "@dao/IDataAccessObject";
 import { EventosDao } from "@dao/models/Eventos/EventosDao";
 import { IEventos, DefaultEventos } from "@server/dao/models/Eventos/IEventos";
+import { ObjectId } from "mongodb";
 
 export class Eventos {
     private eventosDao: EventosDao;
@@ -35,8 +36,9 @@ export class Eventos {
     }
 
     public async getEventoById(id: string){
+        const idevento = new ObjectId(id);
         try {
-            const evento = await this.eventosDao.findByFilter({_id: id});
+            const evento = await this.eventosDao.findByFilter({_id: idevento});
             return evento;
         } catch (ex) {
             console.error('Error al obtener el evento: ', ex);
