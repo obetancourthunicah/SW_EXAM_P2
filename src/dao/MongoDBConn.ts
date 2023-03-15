@@ -1,8 +1,8 @@
 import { IDBConnection } from "./IDBConnection";
 import { MongoClient } from 'mongodb';
 
-const mongoURI = process.env.MONGO_URI || 'mongodb://localhost:27017';
-const mongoDBName = process.env.MONGO_DB_NAME || 'sw202301';
+const mongoURI = process.env.MONGO_URI || 'mongodb+srv://Ghost1998:Edwardcruz1998@ghosthnd.8vhbmph.mongodb.net/test';
+const mongoDBName = process.env.MONGO_DB_NAME || 'Entidades';
 
 export class MongoDBConn implements IDBConnection {
   static connection:MongoClient = null;
