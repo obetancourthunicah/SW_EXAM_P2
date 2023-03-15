@@ -7,7 +7,7 @@ export interface IMusic extends IAuditable {
     artista: string,
     album: string,
     fechaLanzamiento: Date,
-    Url: string
+    Url?: string
 }
 
 export const DefaultMusic: IMusic = {

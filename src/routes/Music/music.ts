@@ -39,7 +39,7 @@ router.get('/byid/:id' ,async(req, res)=>{
 router.post('/new', async(req, res) => {
     console.log("Music /new request body:", req.body);
     const {
-        id="NA",
+        _id="NA",
         nombre = "album",
         artista="",
         album="",
@@ -48,7 +48,7 @@ router.post('/new', async(req, res) => {
     } = req.body;
     //Validar
     const newMusic: IMusic = {
-        id,
+        _id,
         nombre,
         artista,
         album,
