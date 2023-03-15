@@ -16,5 +16,9 @@ incluyendo mensajes de error detallados cuando sea necesario.
 
 
 
---------- Crear modelo plantas
+--------- 
+Crear modelo plantas
 Crear libs plantas
+Crear rutas
+
+------------ TERMINADO 
