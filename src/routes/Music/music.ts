@@ -39,15 +39,21 @@ router.get('/byid/:id' ,async(req, res)=>{
 router.post('/new', async(req, res) => {
     console.log("Music /new request body:", req.body);
     const {
-        codigo="NA",
-        nombre = "John Doe Corp",
-        status = "Activo"
+        id="NA",
+        nombre = "album",
+        artista="",
+        album="",
+        fechaLanzamiento=new Date(),
+        url = "google"
     } = req.body;
     //Validar
     const newMusic: IMusic = {
-        codigo,
+        id,
         nombre,
-        status
+        artista,
+        album,
+        fechaLanzamiento,
+        url
     };
     if (await musicModel.newMusic(newMusic)) {
         return res.status(200).json({ "created": true });
