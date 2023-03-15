@@ -1,0 +1,19 @@
+Como Product Owner, quiero que mi REST API permita a los usuarios agregar, ver, 
+actualizar y eliminar información sobre las plantas ornamentales para que puedan 
+ompartir su conocimiento y experiencia en la jardinería.
+
+Para ello, los usuarios deberán poder enviar solicitudes HTTP POST, GET, PUT y DELETE a 
+a ruta correspondiente del API para realizar las siguientes operaciones en la entidad de Plantas Ornamentales:
+
+Agregar información sobre una nueva planta ornamental con detalles como su nombre científico y común,
+descripción, cuidados, luz solar y riego requeridos, etc.
+
+Ver información sobre una planta ornamental existente por ID o por nombre científico o común.
+Actualizar la información de una planta ornamental existente, como su descripción, cuidados, luz solar y riego requeridos, etc.
+Eliminar una planta ornamental existente.
+Además, el API debe proporcionar respuestas claras y adecuadas para cada operación, 
+incluyendo mensajes de error detallados cuando sea necesario.
+
+
+
+--------- Crear modelo plantas
