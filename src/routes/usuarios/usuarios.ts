@@ -46,6 +46,15 @@ router.post('/new', async (req, res) =>{
 });
 
 
+router.get('/byid/:id', async (req, res)=>{
+    const {id: id} = req.params;
+    const Usuario = await ModeloUsuario.getById(id);
+    if(Usuario){
+      return res.status(200).json(Usuario);
+    }
+    return res.status(404).json({"error":"No se encontró el usuario"});
+  });
+
 router.put('/upd/:id', async (req, res) =>{
     const { id }  = req.params;
     const {
