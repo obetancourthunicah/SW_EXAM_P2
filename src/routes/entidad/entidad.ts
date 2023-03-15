@@ -1,4 +1,4 @@
-import express from "express";
+import express from 'express';
 const router = express.Router();
 
 import { EntidadDao } from '@server/dao/models/entidad/Entidad';
