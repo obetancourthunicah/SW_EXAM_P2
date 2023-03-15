@@ -39,4 +39,8 @@ export class LinkVideos{
         const updatedVideo = await this.videosDao.findByID(id);
         return updatedVideo;
     }
+
+    public async deleteVideo(id: string){
+        return this.videosDao.delete(id);
+    }
 }

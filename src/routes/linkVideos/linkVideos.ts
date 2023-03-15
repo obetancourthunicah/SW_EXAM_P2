@@ -31,4 +31,10 @@ router.put('/updatevideo/:id', async (req, res) => {
     return res.status(200).json(result);
 });
 
+router.delete('/deletevideo/:id', async (req, res) => {
+    const { id } = req.params;
+    const result = await videosModel.deleteVideo(id);
+    return res.status(200).json(result);
+});
+
 export default router;
