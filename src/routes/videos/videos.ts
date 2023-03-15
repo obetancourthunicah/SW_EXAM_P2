@@ -1,10 +1,10 @@
 import express from 'express';
 const router = express.Router();
-import { EmpresasDao } from '@dao/models/Videos/VideosDao';
+import { VideosDao } from '@dao/models/Videos/VideosDao';
 import { MongoDBConn } from '@dao/MongoDBConn';
 import { IVideos } from '@dao/models/Videos/IVideos';
 import { Videos } from '@libs/Videos/Videos';
-const videosDao = new EmpresasDao(MongoDBConn);
+const videosDao = new VideosDao(MongoDBConn);
 let videosModel:Videos;
 videosDao.init().then(()=>{
   videosModel = new Videos(videosDao);
@@ -18,11 +18,11 @@ router.get('/all', async (_req, res) => {
 
 router.get('/byid/:id', async (req, res)=>{
   const {id: codigo} = req.params;
-  const empresa = await videosModel.getById(codigo);
-  if(empresa){
-    return res.status(200).json(empresa);
+  const video = await videosModel.getById(codigo);
+  if(video){
+    return res.status(200).json(video);
   }
-  return res.status(404).json({"error":"No se encontró Empresa"});
+  return res.status(404).json({"error":"No se encontró el Video"});
 });
 
 router.post('/new', async (req, res) => {
