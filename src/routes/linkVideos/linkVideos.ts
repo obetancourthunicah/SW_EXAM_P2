@@ -24,4 +24,11 @@ router.get('/playvideo/:id', async (req, res) => {
     return res.status(200).json(result);
 });
 
+router.put('/updatevideo/:id', async (req, res) => {
+    const { id } = req.params;
+    const uptVideo = req.body;
+    const result = await videosModel.updateVideo(id, {...uptVideo, updatedAt: new Date()});
+    return res.status(200).json(result);
+});
+
 export default router;

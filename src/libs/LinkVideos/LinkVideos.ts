@@ -33,4 +33,10 @@ export class LinkVideos{
             return null;
         }
     }
+
+    public async updateVideo(id: string, updateCmd: Partial<IVideos>){
+        await this.videosDao.update(id, updateCmd);
+        const updatedVideo = await this.videosDao.findByID(id);
+        return updatedVideo;
+    }
 }
