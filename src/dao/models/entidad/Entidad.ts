@@ -1,6 +1,6 @@
 import {MongoDAOBase} from '@dao/MongoDAOBase';
 import { IDBConnection } from '@dao/IDBConnection';
-import { DefaultUser, IUser } from './IUserStory';
+import { DefaultUser, IUser } from './IEntidad';
 export class UserDao extends MongoDAOBase<IUser> {
   constructor(conexion: IDBConnection){
       super("users", conexion);

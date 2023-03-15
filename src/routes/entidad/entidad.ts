@@ -1,4 +1,4 @@
-import { IUserStory, usuarios } from '@libs/UserStory/UserStory';
+import { IUserStory, usuarios } from '@server/libs/entidad/entidad';
 import express from 'express';
 const router = express.Router();
 
