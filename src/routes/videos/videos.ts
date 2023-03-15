@@ -53,20 +53,20 @@ router.put('/upd/:id', async (req, res) => {
   const {
     nombre="----NoseRecibio------",
     descripcion="----NoseRecibio------",
-    url = "----NoseRecibio------"
+    
     
   } = req.body;
 
   if (
     nombre === "----NoseRecibio------"
-    || descripcion === "----NoseRecibio------" || url === "----NoseRecibio------"
+    || descripcion === "----NoseRecibio------" 
   ) {
     return res.status(403).json({"error":"Debe venir el nombre, descripcion y url correctos"});
   }
   const UpdateVideos : IVideos = {
     nombre,
     descripcion,
-    url
+    
   };
 
   if (await videosModel.update(id, UpdateVideos)) {

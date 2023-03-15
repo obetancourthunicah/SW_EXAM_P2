@@ -3,5 +3,5 @@ export interface IVideos{
     descripcion: string; 
     fechaDeCarga?: Date; 
     updated?: Date;
-    url: string;
+    url?: string;
 }
