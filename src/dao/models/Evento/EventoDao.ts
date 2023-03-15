@@ -1,6 +1,6 @@
 import { MongoDAOBase } from "../../MongoDAOBase";
 import { IDBConnection } from "../../IDBConnection";
-import { IEvento } from "../Evento/IEvento";
+import { IEvento } from "./IEvento";
 
 export class EventoDao extends MongoDAOBase<IEvento>{
   constructor(conexion: IDBConnection){

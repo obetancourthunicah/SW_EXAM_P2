@@ -1,7 +1,8 @@
 import { IAuditable } from '@dao/models/IAuditable';
+import { ObjectId } from 'mongodb';
 
 export interface IEvento extends IAuditable{
-    codigo: string;
+    _id?: ObjectId|string;
     nombre: string;
     descripción: string;
     ubicación?: string;
@@ -9,7 +10,6 @@ export interface IEvento extends IAuditable{
 }
 
 export const DefaultEvento: IEvento = {
-    codigo: '',
     nombre: '',
     descripción: '',
     createdAt: new Date(),
