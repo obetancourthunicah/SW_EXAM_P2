@@ -1,7 +1,7 @@
 export interface IProductos{
     nombre:string,
     descripción:string, 
-    precio: float, 
-    Stock: int,
+    precio: string, 
+    Stock: string,
     Categoría: string,
 }
