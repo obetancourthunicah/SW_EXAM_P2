@@ -4,6 +4,7 @@ import { ProductosDao } from '@server/dao/models/Productos/ProductosDao';
 import { MongoDBConn } from '@dao/MongoDBConn';
 import { IProducto } from '@server/dao/models/Productos/IProductos';
 import { Productos } from '@server/libs/Productos/Productos';
+
 const productosDao = new ProductosDao(MongoDBConn);
 let productoModel:Productos;
 productosDao.init().then(()=>{
@@ -11,14 +12,14 @@ productosDao.init().then(()=>{
 });
 
 //registrar los endpoint en router
-//http://localhost:3001/empresas
+//http://localhost:3001/productos
 router.get('/', (_req, res)=>{
   const jsonUrls = {
-    "getAll": {"method":"get", "url": "empresas/all"},
-    "getById": {"method":"get", "url": "empresas/byid/:id"},
-    "new": {"method":"post", "url": "empresas/new"},
-    "update": {"method":"put", "url": "empresas/upd/:id"},
-    "delete": {"method":"delete", "url": "empresas/del/:id"},
+    "getAll": {"method":"get", "url": "productos/all"},
+    "getById": {"method":"get", "url": "productos/byid/:id"},
+    "new": {"method":"post", "url": "productos/new"},
+    "update": {"method":"put", "url": "productos/upd/:id"},
+    "delete": {"method":"delete", "url": "productos/del/:id"},
   };
   res.status(200).json(jsonUrls);
 });
