@@ -5,5 +5,6 @@ import { IMusica } from "./IMusica";
 export class MusicaDao extends MongoDAOBase<IMusica>{
   constructor(conexion: IDBConnection){
       super("Musica", conexion);
+      
   }
 }
