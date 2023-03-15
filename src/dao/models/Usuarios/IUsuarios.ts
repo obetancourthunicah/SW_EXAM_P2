@@ -1,10 +1,11 @@
-export interface IUsuarios{        
+export interface IUsuarios{   
+    ID: string,
     nombre:string, 
     correo:string, 
     password: string,
-    Foto?: any,
-    Biografia? : string,
-    Informacion_Contacto? : string,
-    Notificacion? : boolean,
-    Configuracion_Privacidad? : string,
+    foto?: any,
+    biografia? : string,
+    informacion? : string,
+    notificacion? : boolean,
+    configuracion_Privacidad? : string,
 }
