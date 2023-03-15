@@ -43,18 +43,22 @@ router.get('/byid/:id', (req, res)=>{
 router.post('/new', (req, res) => {
     console.log("Usuarios /new request body:", req.body)
     const {
-        correo= "paola123@gmail.com",
-        nombre= "Paola",
-        password= "Paola123",
-        roles= "Admi"
+        nombre_cientifico= "",
+    nombre_comun= "",
+    descripcion= "",
+    cuidados= "",
+    luz_zolar= "",
+    riesgo_requerido= ""
     } = req.body;
     //TODO: Validar entrada de datos
     const newUsuarios: IPlanta = {
         codigo : "",
-        correo,
-        nombre,
-        password,
-        roles
+        nombre_cientifico,
+        nombre_comun,
+        descripcion,
+        cuidados,
+        luz_zolar,
+        riesgo_requerido
         
     };
     if (plantaModel.add(newUsuarios)){
@@ -67,15 +71,6 @@ router.post('/new', (req, res) => {
 
 router.put('/upd/:id', (req, res) => {
     const { id } = req.params;
-    const {    
-    nombre_cientifico= "",
-    nombre_comun= "",
-    descripcion= "",
-    cuidados= "",
-    luz_zolar= "",
-    riesgo_requerido= ""
-       
-    } = req.body;
 
     const updateUsario : IPlanta = {
     codigo: '',
