@@ -65,27 +65,18 @@ router.post('/new', async (req, res) => {
 router.put('/upd/:id', async (req, res) => {
   const { id } = req.params;
   const {
-    codigo = "----NotRecieved------",
     nombre ="----NotRecieved------",
-    descripcion = "----NotRecieved------",
-    precio="----NotRecieved------",
-    stock="----NotRecieved------",
-    categoria="----NotRecieved------"
+    codigo ="----NotRecieved------"
   } = req.body;
 
   if (
-    nombre === "----NotRecieved------"
-    || descripcion === "----NotRecieved------"
+    nombre === "----NotRecieved------" || codigo === "----NotRecieved------"
   ) {
-    return res.status(403).json({"error":"Debe venir el nombre y descripcion correctos"});
+    return res.status(403).json({"error":"Debe venir el nombre y codigo correctos"});
   }
   const UpdateProducto : IProducto = {
-    codigo,
     nombre,
-    descripcion,
-    precio,
-    stock,
-    categoria
+    codigo
   };
 
   if (await productoModel.update(id, UpdateProducto)) {
