@@ -1,5 +1,5 @@
 import express from 'express';
-const router  = express.Router();
+const router = express.Router();
 import { Ivideo } from '@server/dao/models/video/IVideo';
 import { VideoDao } from '@server/dao/models/video/VideoDao';
 import { MongoDBConn } from '@server/dao/MongoDBConn';
@@ -11,11 +11,3 @@ let ModeloVideo:Videos;
 VideoDao.init().then(() =>{
     ModeloVideo = new Vide(usuariosDao);
 })
-
-router.get('/', (_req, res) => {
-  res.json({msg: 'Examen 2ndo Parcial'});
-});
-
-router
-
-export default router;
