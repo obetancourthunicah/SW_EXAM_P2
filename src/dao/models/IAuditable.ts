@@ -1,4 +1,8 @@
 export interface IAuditable {
-  createdAt: Date,
-  updatedAt: Date
+  Id :  string,
+  nombre : string,
+  artista : string,
+  album : string,
+  fecha: Date,
+  Url: string,
 }
