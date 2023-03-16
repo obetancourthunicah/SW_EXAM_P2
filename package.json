@@ -12,7 +12,7 @@
   "author": "Orlando J Betancourth orlando.betancourth@gmail.com",
   "license": "ISC",
   "devDependencies": {
-    "@tsconfig/recommended": "^1.0.1",
+    "@tsconfig/recommended": "^1.0.2",
     "@types/express": "^4.17.14",
     "@types/jest": "^29.0.3",
     "@types/node": "^18.7.18",
